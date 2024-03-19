@@ -1,1 +1,30 @@
-kjt
+function calculateSalary() {
+  // Get user input
+  let employeeName = prompt("Enter employee name:");
+  let hoursWorked = parseFloat(prompt("Enter hours worked this week:"));
+  let ratePerHour = parseFloat(prompt("Enter hourly pay rate:"));
+
+  // Calculate basic pay
+  let basicPay = hoursWorked * ratePerHour;
+
+  // Calculate tax based on basic pay using if-else statement
+  let tax;
+  if (basicPay > 50000) {
+    tax = basicPay * 0.2; // 20% tax
+  } else if (basicPay >= 20000) {
+    tax = basicPay * 0.1; // 10% tax
+  } else {
+    tax = 0; // No tax
+  }
+
+  // Calculate net pay
+  let netPay = basicPay - tax;
+
+  // Display results
+  console.log("Employee Name:", employeeName);
+  console.log("Basic Pay:", basicPay.toFixed(2)); // Format to two decimal places
+  console.log("Tax:", tax.toFixed(2));
+  console.log("Net Pay:", netPay.toFixed(2));
+}
+
+calculateSalary();
